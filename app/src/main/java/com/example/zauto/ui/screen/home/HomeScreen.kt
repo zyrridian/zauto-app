@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -17,14 +18,21 @@ import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.zauto.R
+import com.example.zauto.di.Injection
+import com.example.zauto.model.Car
+import com.example.zauto.ui.ViewModelFactory
+import com.example.zauto.ui.common.UiState
 import com.example.zauto.ui.components.Banner
 import com.example.zauto.ui.components.Brand
 import com.example.zauto.ui.components.CarCard
@@ -34,7 +42,37 @@ import com.example.zauto.ui.components.LocationButton
 import com.example.zauto.ui.components.SectionHeader
 
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier) {
+fun HomeScreen(
+    viewModel: HomeViewModel = viewModel(
+        factory = ViewModelFactory(
+            Injection.provideRepository(LocalContext.current)
+        )
+    ),
+    modifier: Modifier = Modifier
+) {
+    viewModel.uiState.collectAsState(initial = UiState.Loading).value.let { uiState ->
+        when (uiState) {
+            is UiState.Loading -> {
+                viewModel.getAllCars()
+            }
+            is UiState.Success -> {
+                HomeContent(
+                    cars = uiState.data,
+                    navigateToDetail = {},
+                    modifier = modifier
+                )
+            }
+            is UiState.Error -> {}
+        }
+    }
+}
+
+@Composable
+fun HomeContent(
+    cars: List<Car>,
+    navigateToDetail: (Long) -> Unit,
+    modifier: Modifier = Modifier
+) {
     Column(
         modifier = Modifier.verticalScroll(rememberScrollState())
     ) {
@@ -97,8 +135,18 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 contentPadding = PaddingValues(horizontal = 16.dp),
                 modifier = Modifier.fillMaxWidth()
             ) {
-                items(3) {
-                    CarCard()
+                items(cars) { data ->
+                    CarCard(
+                        image = data.images[0],
+                        brand = data.brand,
+                        model = data.model,
+                        type = data.type,
+                        fuelType = data.fuelType,
+                        horsePower = data.horsePower,
+                        year = data.year,
+                        price = data.price,
+                        features = data.features
+                    )
                 }
             }
 

@@ -1,0 +1,289 @@
+{
+  "cars": [
+    {
+      "id": 1,
+      "brand": "Toyota",
+      "model": "Camry",
+      "year": 2023,
+      "type": "Sedan",
+      "price": 30000,
+      "seat": 5,
+      "transmission": "Automatic",
+      "engineType": "2.5L Inline-4",
+      "horsePower": 203,
+      "fuelType": "Gasoline",
+      "features": [
+        "Adaptive Cruise Control",
+        "Lane Keeping Assist",
+        "Apple CarPlay",
+        "Android Auto",
+        "Backup Camera"
+      ],
+      "images": [
+        "https://www.buyatoyota.com/sharpr/bat/assets/img/vehicle-info/Camry/2023/hero_image_camry.png",
+        "https://www.buyatoyota.com/sharpr/bat/assets/img/vehicle-info/Camry/2023/gallery_expanded_01.jpg",
+        "https://www.buyatoyota.com/sharpr/bat/assets/img/vehicle-info/Camry/2023/gallery_expanded_02.jpg",
+        "https://www.buyatoyota.com/sharpr/bat/assets/img/vehicle-info/Camry/2023/gallery_expanded_03.jpg",
+        "https://www.buyatoyota.com/sharpr/bat/assets/img/vehicle-info/Camry/2023/gallery_expanded_04.jpg",
+        "https://www.buyatoyota.com/sharpr/bat/assets/img/vehicle-info/Camry/2023/gallery_expanded_05.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "brand": "Honda",
+      "model": "Civic",
+      "year": 2023,
+      "type": "Sedan",
+      "price": 28000,
+      "seat": 5,
+      "transmission": "CVT",
+      "engineType": "2.0L Inline-4",
+      "horsePower": 158,
+      "fuelType": "Gasoline",
+      "features": [
+        "Honda Sensing",
+        "Touchscreen Display",
+        "Wireless Apple CarPlay",
+        "Heated Front Seats",
+        "Rearview Camera"
+      ],
+      "images": [
+        "https://mystrongad.com/BPH_BillPageHonda/Digital/Civic/2023/23-Honda-Civic-White.png",
+        "https://othonda.sfo2.digitaloceanspaces.com/2023/Civic_Sedan/MY22-Civic-Sedan-gallery-18-THUMB-1400-1x-A.jpg",
+        "https://www.mad4wheels.com/img/free-car-images/mobile/18825/honda-civic-sedan-2022-629857.jpg",
+        "https://dealerimages.dealereprocess.com/image/upload/2809257",
+        "https://othonda.sfo2.digitaloceanspaces.com/2023/Civic_Sedan/MY22-Civic-Sedan-gallery-08-THUMB-1400-1x.jpg",
+        "https://medautogroup.com/wp-content/uploads/2023/12/2023HondaCivicSportTouring_MedAutoGroup29-762x456.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "brand": "Tesla",
+      "model": "Model 3",
+      "year": 2023,
+      "type": "Sedan",
+      "price": 40000,
+      "seat": 5,
+      "transmission": "Single-Speed",
+      "engineType": "Electric",
+      "horsePower": 283,
+      "fuelType": "Electric",
+      "features": [
+        "Autopilot",
+        "Full Self-Driving Capability",
+        "Wireless Charging",
+        "Premium Audio System",
+        "Panoramic Glass Roof"
+      ],
+      "images": [
+        "https://www.tesla.com/ownersmanual/images/GUID-B5641257-9E85-404B-9667-4DA5FDF6D2E7-online-en-US.png",
+        "https://www.tesla.com/ownersmanual/images/GUID-ABAA06FE-C0EA-4364-9E21-C29FE3015B41-online-en-US.png",
+        "https://www.tesla.com/ownersmanual/images/GUID-58A450B0-6C19-4620-B233-60B3FE8A010F-online-en-US.png",
+        "https://www.tesla.com/ownersmanual/images/GUID-60BED5C8-D1C8-488D-9674-E3E94806B5B7-online-en-US.png",
+        "https://www.tesla.com/ownersmanual/images/GUID-CA0C3D61-CB14-4EDA-86B4-E09274AAD173-online-en-US.png",
+        "https://www.tesla.com/ownersmanual/images/GUID-79AAFC7E-DE2A-4B27-81AC-E23CDAEBA0C7-online-en-US.png"
+      ]
+    },
+    {
+      "id": 4,
+      "brand": "Ford",
+      "model": "F-150",
+      "year": 2023,
+      "type": "Truck",
+      "price": 35000,
+      "seat": 6,
+      "transmission": "10-Speed Automatic",
+      "engineType": "3.5L V6",
+      "horsePower": 400,
+      "fuelType": "Gasoline",
+      "features": [
+        "Pro Power Onboard",
+        "360-Degree Camera",
+        "Ford Co-Pilot360",
+        "12-Inch Touchscreen",
+        "Trailer Backup Assist"
+      ],
+      "images": [
+        "https://build.ford.com/dig/Ford/F-150%20F-150/2025/HD-TILE/Image%5B%7CFord%7CF-150%20F-150%7C2025%7C1%7C1.%7C101A.F1K.122.PUM.LSC.88C.89S.A5GAA.A7BAA.SS6.B3HAC.16G.BLDA4.55D.BSBAB.BSHE1.BYPAB.C1CAG.RCAB.CFFAB.CLFAF.CLMAB.64C.T72.DBCAD.RWD.995.652.GRAA2.GTACA.HKRAD.HLLAG.HNKAB.HTSAA.IBBAB.582.IEVAQ.JBBA7.774.44G.XL6.CLO.%5D/EXT/1/vehicle.png",
+        "https://build.ford.com/dig/Ford/F-150%20F-150/2025/HD-TILE/Image%5B%7CFord%7CF-150%20F-150%7C2025%7C1%7C1.%7C101A.F1K.122.PUM.LSC.88C.89S.A5GAA.A7BAA.SS6.B3HAC.16G.BLDA4.55D.BSBAB.BSHE1.BYPAB.C1CAG.RCAB.CFFAB.CLFAF.CLMAB.64C.T72.DBCAD.RWD.995.652.GRAA2.GTACA.HKRAD.HLLAG.HNKAB.HTSAA.IBBAB.582.IEVAQ.JBBA7.774.44G.XL6.CLO.%5D/EXT/2/vehicle.png",
+        "https://build.ford.com/dig/Ford/F-150%20F-150/2025/HD-TILE/Image%5B%7CFord%7CF-150%20F-150%7C2025%7C1%7C1.%7C101A.F1K.122.PUM.LSC.88C.89S.A5GAA.A7BAA.SS6.B3HAC.16G.BLDA4.55D.BSBAB.BSHE1.BYPAB.C1CAG.RCAB.CFFAB.CLFAF.CLMAB.64C.T72.DBCAD.RWD.995.652.GRAA2.GTACA.HKRAD.HLLAG.HNKAB.HTSAA.IBBAB.582.IEVAQ.JBBA7.774.44G.XL6.CLO.%5D/EXT/3/vehicle.png",
+        "https://build.ford.com/dig/Ford/F-150%20F-150/2025/HD-TILE/Image%5B%7CFord%7CF-150%20F-150%7C2025%7C1%7C1.%7C101A.F1K.122.PUM.LSC.88C.89S.A5GAA.A7BAA.SS6.B3HAC.16G.BLDA4.55D.BSBAB.BSHE1.BYPAB.C1CAG.RCAB.CFFAB.CLFAF.CLMAB.64C.T72.DBCAD.RWD.995.652.GRAA2.GTACA.HKRAD.HLLAG.HNKAB.HTSAA.IBBAB.582.IEVAQ.JBBA7.774.44G.XL6.CLO.%5D/EXT/4/vehicle.png",
+        "https://build.ford.com/dig/Ford/F-150%20F-150/2025/HD-TILE/Image%5B%7CFord%7CF-150%20F-150%7C2025%7C1%7C1.%7C101A.F1K.122.PUM.LSC.88C.89S.A5GAA.A7BAA.SS6.B3HAC.16G.BLDA4.55D.BSBAB.BSHE1.BYPAB.C1CAG.RCAB.CFFAB.CLFAF.CLMAB.64C.T72.DBCAD.RWD.995.652.GRAA2.GTACA.HKRAD.HLLAG.HNKAB.HTSAA.IBBAB.582.IEVAQ.JBBA7.774.44G.XL6.CLO.%5D/EXT/5/vehicle.png",
+        "https://build.ford.com/dig/Ford/F-150%20F-150/2025/HD-TILE/Image%5B%7CFord%7CF-150%20F-150%7C2025%7C1%7C1.%7C101A.F1K.122.PUM.LSC.88C.89S.A5GAA.A7BAA.SS6.B3HAC.16G.BLDA4.55D.BSBAB.BSHE1.BYPAB.C1CAG.RCAB.CFFAB.CLFAF.CLMAB.64C.T72.DBCAD.RWD.995.652.GRAA2.GTACA.HKRAD.HLLAG.HNKAB.HTSAA.IBBAB.582.IEVAQ.JBBA7.774.44G.XL6.CLO.%5D/INT/1/vehicle.png",
+        "https://build.ford.com/dig/Ford/F-150%20F-150/2025/HD-TILE/Image%5B%7CFord%7CF-150%20F-150%7C2025%7C1%7C1.%7C101A.F1K.122.PUM.LSC.88C.89S.A5GAA.A7BAA.SS6.B3HAC.16G.BLDA4.55D.BSBAB.BSHE1.BYPAB.C1CAG.RCAB.CFFAB.CLFAF.CLMAB.64C.T72.DBCAD.RWD.995.652.GRAA2.GTACA.HKRAD.HLLAG.HNKAB.HTSAA.IBBAB.582.IEVAQ.JBBA7.774.44G.XL6.CLO.%5D/INT/2/vehicle.png",
+      ]
+    },
+    {
+      "id": 5,
+      "brand": "Chevrolet",
+      "model": "Silverado 1500",
+      "year": 2023,
+      "type": "Truck",
+      "price": 36000,
+      "seat": 6,
+      "transmission": "8-Speed Automatic",
+      "engineType": "5.3L V8",
+      "horsePower": 355,
+      "fuelType": "Gasoline",
+      "features": [
+        "Durabed Cargo Space",
+        "Trailering Camera System",
+        "Wireless Apple CarPlay",
+        "Heated Steering Wheel",
+        "Forward Collision Alert"
+      ],
+      "images": [
+        "https://www.chevrolet.com/content/dam/chevrolet/na/us/english/vdc-collections/2025/trucks/silverado-1500/models/02-images/2025-silverado-ck10543-1wt-gaz-trimselector.png?imwidth=1200",
+        "https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2025/trucks/silverado-ld/mov/01-images/2025-ldretail-advtechnologies-04.png?imwidth=1920",
+        "https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2025/trucks/silverado-ld/mov/01-images/2025-ldretail-interior-01.png?imwidth=1920",
+        "https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2025/trucks/silverado-ld/mov/02-images/zr2/2025-ldretail-zr2-01-v03.jpg?imwidth=1200",
+        "https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2025/trucks/silverado-ld/mov/01-images/2025-ldretail-highcountry.jpg?imwidth=1920",
+        "https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2025/trucks/silverado-ld/mov/01-images/2025-ldretail-specialeditions-01.png?imwidth=1920",
+        "https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2025/trucks/silverado-ld/mov/01-images/2025-ldretail-gallerypre-04.png?imwidth=1920",
+        "https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2025/trucks/silverado-ld/mov/01-images/2025-ldretail-gallerypre-05.png?imwidth=1920",
+        "https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2025/trucks/silverado-ld/gallery/exterior/v2/2025-ldretail-gallerypre-06-v2.jpg?imwidth=1920",
+      ]
+    },
+    {
+      "id": 6,
+      "brand": "BMW",
+      "model": "X5",
+      "year": 2023,
+      "type": "SUV",
+      "price": 60000,
+      "seat": 5,
+      "transmission": "8-Speed Automatic",
+      "engineType": "3.0L Turbo Inline-6",
+      "horsePower": 335,
+      "fuelType": "Gasoline",
+      "features": [
+        "BMW Live Cockpit Professional",
+        "Panoramic Moonroof",
+        "Wireless Charging",
+        "Harman Kardon Audio",
+        "All-Wheel Drive"
+      ],
+      "images": [
+        "https://bmw-laxmi.com.np/assets/frontend/images/all-models/x-series/x5/models-equipment/cosySec1.png",
+        "https://www.bmw.co.id/content/dam/bmw/common/all-models/x-series/x5/2023/highlights/bmw-X-series-x5-cp-exterior-desktop.jpg",
+        "https://dealerinspire-image-library-prod.s3.us-east-1.amazonaws.com/images/BaSXbemMCBkASTSnrY01lR2SXwGyREb8rr7iRu8N.jpg",
+        "https://dealerinspire-image-library-prod.s3.us-east-1.amazonaws.com/images/bnc5BhdKjszJH36KuYc5YXYmnrPi7RmriHXXElp6.jpg",
+        "https://www.bmw.co.id/content/dam/bmw/common/all-models/x-series/x5/2023/highlights/bmw-X-series-x5-ms-finance.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/2019_BMW_X5_M50d_Automatic_3.0.jpg/640px-2019_BMW_X5_M50d_Automatic_3.0.jpg",
+      ]
+    },
+    {
+      "id": 7,
+      "brand": "Audi",
+      "model": "A6",
+      "year": 2023,
+      "type": "Sedan",
+      "price": 55000,
+      "seat": 5,
+      "transmission": "7-Speed Automatic",
+      "engineType": "2.0L Turbo Inline-4",
+      "horsePower": 261,
+      "fuelType": "Gasoline",
+      "features": [
+        "Audi Virtual Cockpit",
+        "Bang & Olufsen Audio",
+        "All-Wheel Drive",
+        "Head-Up Display",
+        "Wireless Apple CarPlay"
+      ],
+      "images": [
+        "https://www.pngarts.com/files/11/Automobile-Audi-A6-PNG-High-Quality-Image.png",
+        "https://media.audi.com/is/image/audi/nemo/models/a6/a6-limousine/my-2024/stage/AA6_L_181012_3-L.jpg?width=768",
+        "https://asset.kompas.com/crops/gtj2J53-lAAE5pMbWsPtXM5u6ZY=/289x10:3233x1973/1200x800/data/photo/2020/09/16/5f6190e26d44b.jpg",
+        "https://imgd.aeplcdn.com/664x374/n/cw/ec/39472/a6-exterior-rear-view.jpeg?isig=0&q=80",
+        "https://moladin.com/blog/wp-content/uploads/2021/11/2020-audi-a6-sedan.jpg",
+        "https://hips.hearstapps.com/autoweek/assets/s3fs-public/2019-audi-a6-5012.jpg",
+        "https://imgcdn.oto.com/large/gallery/interior/1/4/audi-a6-dashboard-view-530675.jpg"
+      ]
+    },
+    {
+      "id": 8,
+      "brand": "Mercedes-Benz",
+      "model": "GLE",
+      "year": 2023,
+      "type": "SUV",
+      "price": 62000,
+      "seat": 5,
+      "transmission": "9-Speed Automatic",
+      "engineType": "2.0L Turbo Inline-4",
+      "horsePower": 255,
+      "fuelType": "Gasoline",
+      "features": [
+        "MBUX Infotainment System",
+        "Panoramic Sunroof",
+        "Heated and Ventilated Seats",
+        "Active Lane Keeping Assist",
+        "360-Degree Camera"
+      ],
+      "images": [
+        "https://vehicle-images.dealerinspire.com/stock-images/thumbnails/large/chrome/dc5375ead66b5cb24f1ef8a068715344.png",
+        "https://www.mercedes-benz.co.id/media/zbmnklw0/5-gle_exterior-styling-tab.jpg",
+        "https://www.mercedes-benz.co.id/media/mnelrhyb/7-gle_interior-styling-tab.jpg",
+        "https://di-uploads-pod31.dealerinspire.com/johnsissonmercedesbenz/uploads/2020/06/shutterstock_1668410128.jpg",
+        "https://i.gaw.to/vehicles/photos/40/23/402337-2021-mercedes-benz-gle.jpg?1024x640",
+        "https://i.ytimg.com/vi/qVFFaW361mU/maxresdefault.jpg"
+      ]
+    },
+    {
+      "id": 9,
+      "brand": "Hyundai",
+      "model": "Tucson",
+      "year": 2023,
+      "type": "SUV",
+      "price": 29000,
+      "seat": 5,
+      "transmission": "8-Speed Automatic",
+      "engineType": "2.5L Inline-4",
+      "horsePower": 187,
+      "fuelType": "Gasoline",
+      "features": [
+        "Remote Smart Parking Assist",
+        "Blind-Spot View Monitor",
+        "Panoramic Sunroof",
+        "Wireless Android Auto",
+        "Rear Occupant Alert"
+      ],
+      "images": [
+        "https://resource.digitaldealer.com.au/image/1354363830667d108e06fb8431606976_0_0-c.jpg",
+        "https://www.hyundai.com/content/dam/hyundai/id/id/images/local/new-tucson/highlights/highlights_banner_1860x720.png",
+        "https://www.hyundai.com/content/dam/hyundai/id/id/images/local/new-tucson/highlights/highlights_banner_1860x720.png",
+        "https://www.hyundai.com/content/dam/hyundai/id/id/images/local/new-tucson/highlights/highlights_banner_1860x720.png",
+        "https://www.hyundai.com/content/dam/hyundai/id/id/images/local/new-tucson/highlights/Overtake-the-ordinary-comfort_1120-x-630.png",
+        "https://www.hyundai.com/content/dam/hyundai/id/id/images/local/new-tucson/highlights/Overtake-the-power_1120-x-630.png"
+      ]
+    },
+    {
+      "id": 10,
+      "brand": "Kia",
+      "model": "Sportage",
+      "year": 2023,
+      "type": "SUV",
+      "price": 28000,
+      "seat": 5,
+      "transmission": "8-Speed Automatic",
+      "engineType": "2.5L Inline-4",
+      "horsePower": 187,
+      "fuelType": "Gasoline",
+      "features": [
+        "Dual Panoramic Displays",
+        "Smart Power Tailgate",
+        "Heated Steering Wheel",
+        "360-Degree Camera",
+        "Wireless Phone Charger"
+      ],
+      "images": [
+        "https://kiavietnam.com.vn/storage/kia-viet-nam/hinh-anh/suv-1.png",
+        "https://hips.hearstapps.com/hmg-prod/images/2026-kia-sportage-pr-114-673f7ae56c057.jpg?crop=0.689xw:0.774xh;0.154xw,0.120xh&resize=768:*",
+        "https://www.blackxperience.com/assets/content/blackauto/autonews/kia-sportage-2022-5.jpg",
+        "https://hips.hearstapps.com/hmg-prod/images/2026-kia-sportage-pr-114-673f7ae56c057.jpg?crop=0.796xw:0.673xh;0.103xw,0.142xh&resize=2048:*",
+        "https://www.kia.com/content/dam/kwcms/au/en/images/showroom/sportage/features/kia-sportage-features-design-rear.jpg",
+        "https://www.motortrend.com/files/673e69a57529c800081d7ae1/2026-kia-sportage-5.jpg?w=768&width=768&q=75&format=webp"
+      ]
+    }
+  ]
+}
