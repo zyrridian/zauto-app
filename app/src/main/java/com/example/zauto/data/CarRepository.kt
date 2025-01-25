@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 
-class CarRepository(private val context: Context) {
+class CarRepository(context: Context) {
 
     private val cars = mutableListOf<Car>()
 
@@ -24,11 +24,11 @@ class CarRepository(private val context: Context) {
         return flowOf(cars)
     }
 
-//    fun getOrderRewardById(rewardId: Long): OrderReward {
-//        return orderRewards.first {
-//            it.reward.id == rewardId
-//        }
-//    }
+    fun getCarById(carId: Int): Car {
+        return cars.first {
+            it.id == carId
+        }
+    }
 //
 //    fun updateOrderReward(rewardId: Long, newCountValue: Int): Flow<Boolean> {
 //        val index = orderRewards.indexOfFirst { it.reward.id == rewardId }

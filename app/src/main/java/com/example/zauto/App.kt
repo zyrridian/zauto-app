@@ -3,6 +3,7 @@ package com.example.zauto
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
@@ -19,12 +20,15 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.zauto.ui.navigation.NavigationItem
 import com.example.zauto.ui.navigation.Screen
+import com.example.zauto.ui.screen.detail.DetailScreen
 import com.example.zauto.ui.screen.favorite.FavoriteScreen
 import com.example.zauto.ui.screen.home.HomeScreen
 import com.example.zauto.ui.screen.profile.ProfileScreen
@@ -39,10 +43,13 @@ fun ZautoApp(
 val currentRoute =navBackStackEntry?.destination?.route
     Scaffold(
         bottomBar = {
-//            if (currentRoute )
-            BottomBar(navController)
+            if (currentRoute != Screen.Detail.route) {
+                BottomBar(navController)
+            }
         },
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
+            .systemBarsPadding()
     ) { innerPadding ->
         NavHost(
             navController = navController,
@@ -50,13 +57,39 @@ val currentRoute =navBackStackEntry?.destination?.route
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(Screen.Home.route) {
-                HomeScreen()
+                HomeScreen(
+                    navigateToDetail = { carId ->
+                        navController.navigate(Screen.Detail.createRoute(carId))
+                    }
+                )
             }
             composable(Screen.Favorite.route) {
                 FavoriteScreen()
             }
             composable(Screen.Profile.route) {
                 ProfileScreen()
+            }
+            composable(
+                route = Screen.Detail.route,
+                arguments = listOf(navArgument("carId") { type = NavType.IntType }),
+            ) {
+                val id = it.arguments?.getInt("carId") ?: -1
+                DetailScreen(
+                    carId = id,
+                    navigateBack = {
+                        navController.navigateUp()
+                    },
+                    navigateToCart = {
+                        navController.popBackStack()
+                        navController.navigate(Screen.Detail.route) {
+                            popUpTo(navController.graph.findStartDestination().id) {
+                                saveState = true
+                            }
+                            launchSingleTop = true
+                            restoreState = true
+                        }
+                    }
+                )
             }
         }
     }

@@ -12,6 +12,7 @@
       "engineType": "2.5L Inline-4",
       "horsePower": 203,
       "fuelType": "Gasoline",
+      "specifications": "• Brand: Toyota\n• Model: Camry\n• Year: 2023\n• Body Type: Sedan\n• Engine: 2.5L Dynamic Force 4-cylinder\n• Transmission: 8-speed automatic\n• Drive Type: Front-Wheel Drive (FWD)\n• Fuel Type: Petrol\n• Fuel Economy: 28 mpg (city) / 39 mpg (highway)\n• Horsepower: 203 hp\n• Torque: 184 lb-ft\n• Seating Capacity: 5",
       "features": [
         "Adaptive Cruise Control",
         "Lane Keeping Assist",
@@ -40,6 +41,7 @@
       "engineType": "2.0L Inline-4",
       "horsePower": 158,
       "fuelType": "Gasoline",
+      "specifications": "• Brand: Honda\n• Model: Civic\n• Year: 2023\n• Body Type: Sedan\n• Engine: 2.0L DOHC i-VTEC 4-cylinder\n• Transmission: Continuously Variable Transmission (CVT)\n• Drive Type: Front-Wheel Drive (FWD)\n• Fuel Type: Petrol\n• Horsepower: 158 hp @ 6,500 rpm\n• Torque: 138 lb-ft @ 4,200 rpm\n• Seating Capacity: 5",
       "features": [
         "Honda Sensing",
         "Touchscreen Display",
@@ -68,6 +70,7 @@
       "engineType": "Electric",
       "horsePower": 283,
       "fuelType": "Electric",
+      "specifications": "• Brand: Tesla\n• Model: Model 3\n• Year: 2023\n• Body Type: Sedan\n• Engine: Electric\n• Transmission: Single-speed automatic\n• Drive Type: Rear-Wheel Drive (RWD) or All-Wheel Drive (AWD)\n• Fuel Type: Electric\n• Horsepower: Varies by configuration\n• Torque: Instant torque\n• Seating Capacity: 5\n• Range: Up to 358 miles (depending on configuration)",
       "features": [
         "Autopilot",
         "Full Self-Driving Capability",
@@ -96,6 +99,7 @@
       "engineType": "3.5L V6",
       "horsePower": 400,
       "fuelType": "Gasoline",
+      "specifications": "• Brand: Ford\n• Model: F-150\n• Year: 2023\n• Body Type: Pickup Truck\n• Engine: Multiple options including 3.3L V6, 2.7L EcoBoost V6, 5.0L V8\n• Transmission: 10-speed automatic\n• Drive Type: Rear-Wheel Drive (RWD) or Four-Wheel Drive (4WD)\n• Fuel Type: Petrol\n• Horsepower: Up to 400 hp (depending on engine choice)\n• Torque: Up to 410 lb-ft (depending on engine choice)\n• Seating Capacity: Up to 6\n• Bed Length: 67.1 inches\n• Payload Capacity: 1,765 lbs\n• Towing Capacity: Up to 13,900 lbs",
       "features": [
         "Pro Power Onboard",
         "360-Degree Camera",
@@ -110,7 +114,7 @@
         "https://build.ford.com/dig/Ford/F-150%20F-150/2025/HD-TILE/Image%5B%7CFord%7CF-150%20F-150%7C2025%7C1%7C1.%7C101A.F1K.122.PUM.LSC.88C.89S.A5GAA.A7BAA.SS6.B3HAC.16G.BLDA4.55D.BSBAB.BSHE1.BYPAB.C1CAG.RCAB.CFFAB.CLFAF.CLMAB.64C.T72.DBCAD.RWD.995.652.GRAA2.GTACA.HKRAD.HLLAG.HNKAB.HTSAA.IBBAB.582.IEVAQ.JBBA7.774.44G.XL6.CLO.%5D/EXT/4/vehicle.png",
         "https://build.ford.com/dig/Ford/F-150%20F-150/2025/HD-TILE/Image%5B%7CFord%7CF-150%20F-150%7C2025%7C1%7C1.%7C101A.F1K.122.PUM.LSC.88C.89S.A5GAA.A7BAA.SS6.B3HAC.16G.BLDA4.55D.BSBAB.BSHE1.BYPAB.C1CAG.RCAB.CFFAB.CLFAF.CLMAB.64C.T72.DBCAD.RWD.995.652.GRAA2.GTACA.HKRAD.HLLAG.HNKAB.HTSAA.IBBAB.582.IEVAQ.JBBA7.774.44G.XL6.CLO.%5D/EXT/5/vehicle.png",
         "https://build.ford.com/dig/Ford/F-150%20F-150/2025/HD-TILE/Image%5B%7CFord%7CF-150%20F-150%7C2025%7C1%7C1.%7C101A.F1K.122.PUM.LSC.88C.89S.A5GAA.A7BAA.SS6.B3HAC.16G.BLDA4.55D.BSBAB.BSHE1.BYPAB.C1CAG.RCAB.CFFAB.CLFAF.CLMAB.64C.T72.DBCAD.RWD.995.652.GRAA2.GTACA.HKRAD.HLLAG.HNKAB.HTSAA.IBBAB.582.IEVAQ.JBBA7.774.44G.XL6.CLO.%5D/INT/1/vehicle.png",
-        "https://build.ford.com/dig/Ford/F-150%20F-150/2025/HD-TILE/Image%5B%7CFord%7CF-150%20F-150%7C2025%7C1%7C1.%7C101A.F1K.122.PUM.LSC.88C.89S.A5GAA.A7BAA.SS6.B3HAC.16G.BLDA4.55D.BSBAB.BSHE1.BYPAB.C1CAG.RCAB.CFFAB.CLFAF.CLMAB.64C.T72.DBCAD.RWD.995.652.GRAA2.GTACA.HKRAD.HLLAG.HNKAB.HTSAA.IBBAB.582.IEVAQ.JBBA7.774.44G.XL6.CLO.%5D/INT/2/vehicle.png",
+        "https://build.ford.com/dig/Ford/F-150%20F-150/2025/HD-TILE/Image%5B%7CFord%7CF-150%20F-150%7C2025%7C1%7C1.%7C101A.F1K.122.PUM.LSC.88C.89S.A5GAA.A7BAA.SS6.B3HAC.16G.BLDA4.55D.BSBAB.BSHE1.BYPAB.C1CAG.RCAB.CFFAB.CLFAF.CLMAB.64C.T72.DBCAD.RWD.995.652.GRAA2.GTACA.HKRAD.HLLAG.HNKAB.HTSAA.IBBAB.582.IEVAQ.JBBA7.774.44G.XL6.CLO.%5D/INT/2/vehicle.png"
       ]
     },
     {
@@ -125,6 +129,7 @@
       "engineType": "5.3L V8",
       "horsePower": 355,
       "fuelType": "Gasoline",
+      "specifications": "• Brand: Chevrolet\n• Model: Silverado 1500\n• Year: 2023\n• Body Type: Pickup Truck\n• Engine: Multiple options including 2.7L Turbo, 5.3L V8, 6.2L V8\n• Transmission: 8-speed or 10-speed automatic\n• Drive Type: Rear-Wheel Drive (RWD) or Four-Wheel Drive (4WD)\n• Fuel Type: Petrol\n• Horsepower: Up to 420 hp (depending on engine choice)\n• Torque: Up to 460 lb-ft (depending on engine choice)\n• Seating Capacity: Up to 6\n• Bed Length: 69.9 inches\n• Payload Capacity: 2,060 lbs\n• Towing Capacity: Up to 13,200 lbs",
       "features": [
         "Durabed Cargo Space",
         "Trailering Camera System",
@@ -141,7 +146,7 @@
         "https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2025/trucks/silverado-ld/mov/01-images/2025-ldretail-specialeditions-01.png?imwidth=1920",
         "https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2025/trucks/silverado-ld/mov/01-images/2025-ldretail-gallerypre-04.png?imwidth=1920",
         "https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2025/trucks/silverado-ld/mov/01-images/2025-ldretail-gallerypre-05.png?imwidth=1920",
-        "https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2025/trucks/silverado-ld/gallery/exterior/v2/2025-ldretail-gallerypre-06-v2.jpg?imwidth=1920",
+        "https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2025/trucks/silverado-ld/gallery/exterior/v2/2025-ldretail-gallerypre-06-v2.jpg?imwidth=1920"
       ]
     },
     {
@@ -156,6 +161,7 @@
       "engineType": "3.0L Turbo Inline-6",
       "horsePower": 335,
       "fuelType": "Gasoline",
+      "specifications": "• Brand: BMW\n• Model: X5\n• Year: 2023\n• Body Type: SUV\n• Engine: 3.0L Turbocharged Inline-6 with mild hybrid system\n• Transmission: 8-speed automatic\n• Drive Type: All-Wheel Drive (AWD)\n• Fuel Type: Petrol\n• Horsepower: 335 hp @ 5,500 rpm\n• Torque: 331 lb-ft @ 1,500 rpm\n• Seating Capacity: 5",
       "features": [
         "BMW Live Cockpit Professional",
         "Panoramic Moonroof",
@@ -169,7 +175,7 @@
         "https://dealerinspire-image-library-prod.s3.us-east-1.amazonaws.com/images/BaSXbemMCBkASTSnrY01lR2SXwGyREb8rr7iRu8N.jpg",
         "https://dealerinspire-image-library-prod.s3.us-east-1.amazonaws.com/images/bnc5BhdKjszJH36KuYc5YXYmnrPi7RmriHXXElp6.jpg",
         "https://www.bmw.co.id/content/dam/bmw/common/all-models/x-series/x5/2023/highlights/bmw-X-series-x5-ms-finance.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/2019_BMW_X5_M50d_Automatic_3.0.jpg/640px-2019_BMW_X5_M50d_Automatic_3.0.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/2019_BMW_X5_M50d_Automatic_3.0.jpg/640px-2019_BMW_X5_M50d_Automatic_3.0.jpg"
       ]
     },
     {
@@ -184,6 +190,7 @@
       "engineType": "2.0L Turbo Inline-4",
       "horsePower": 261,
       "fuelType": "Gasoline",
+      "specifications": "• Brand: Audi\n• Model: A6\n• Year: 2023\n• Body Type: Sedan\n• Engine: 2.0L Turbocharged Inline-4\n• Transmission: 8-speed automatic\n• Drive Type: All-Wheel Drive (AWD)\n• Fuel Type: Petrol\n• Horsepower: 261 hp @ 5,000 rpm\n• Torque: 273 lb-ft @ 1,600 rpm\n• Seating Capacity: 5",
       "features": [
         "Audi Virtual Cockpit",
         "Bang & Olufsen Audio",
@@ -213,6 +220,7 @@
       "engineType": "2.0L Turbo Inline-4",
       "horsePower": 255,
       "fuelType": "Gasoline",
+      "specifications": "• Brand: Mercedes-Benz\n• Model: GLE 350 4MATIC\n• Year: 2023\n• Body Type: SUV\n• Engine: 2.0L Inline-4 Turbo\n• Transmission: 9-speed shiftable automatic\n• Drive Type: All-Wheel Drive (AWD)\n• Fuel Type: Petrol\n• Horsepower: 255 hp @ 5,800 rpm\n• Torque: 273 lb-ft @ 1,800 rpm\n• Seating Capacity: 5",
       "features": [
         "MBUX Infotainment System",
         "Panoramic Sunroof",
@@ -241,6 +249,7 @@
       "engineType": "2.5L Inline-4",
       "horsePower": 187,
       "fuelType": "Gasoline",
+      "specifications": "• Brand: Hyundai\n• Model: Tucson\n• Year: 2023\n• Body Type: SUV\n• Engine: 2.5L Inline-4\n• Transmission: 8-speed automatic\n• Drive Type: Front-Wheel Drive (FWD) or All-Wheel Drive (AWD)\n• Fuel Type: Petrol\n• Horsepower: 187 hp @ 6,100 rpm\n• Torque: 178 lb-ft @ 4,000 rpm\n• Seating Capacity: 5",
       "features": [
         "Remote Smart Parking Assist",
         "Blind-Spot View Monitor",
@@ -269,6 +278,7 @@
       "engineType": "2.5L Inline-4",
       "horsePower": 187,
       "fuelType": "Gasoline",
+      "specifications": "• Brand: Kia\n• Model: Sportage\n• Year: 2023\n• Body Type: SUV\n• Engine: 2.5L Inline-4\n• Transmission: 8-speed automatic\n• Drive Type: Front-Wheel Drive (FWD) or All-Wheel Drive (AWD)\n• Fuel Type: Petrol\n• Horsepower: 187 hp @ 6,100 rpm\n• Torque: 178 lb-ft @ 4,000 rpm\n• Seating Capacity: 5",
       "features": [
         "Dual Panoramic Displays",
         "Smart Power Tailgate",
@@ -278,11 +288,9 @@
       ],
       "images": [
         "https://kiavietnam.com.vn/storage/kia-viet-nam/hinh-anh/suv-1.png",
-        "https://hips.hearstapps.com/hmg-prod/images/2026-kia-sportage-pr-114-673f7ae56c057.jpg?crop=0.689xw:0.774xh;0.154xw,0.120xh&resize=768:*",
         "https://www.blackxperience.com/assets/content/blackauto/autonews/kia-sportage-2022-5.jpg",
         "https://hips.hearstapps.com/hmg-prod/images/2026-kia-sportage-pr-114-673f7ae56c057.jpg?crop=0.796xw:0.673xh;0.103xw,0.142xh&resize=2048:*",
-        "https://www.kia.com/content/dam/kwcms/au/en/images/showroom/sportage/features/kia-sportage-features-design-rear.jpg",
-        "https://www.motortrend.com/files/673e69a57529c800081d7ae1/2026-kia-sportage-5.jpg?w=768&width=768&q=75&format=webp"
+        "https://www.kia.com/content/dam/kwcms/au/en/images/showroom/sportage/features/kia-sportage-features-design-rear.jpg"
       ]
     }
   ]

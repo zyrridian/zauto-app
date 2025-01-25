@@ -1,6 +1,7 @@
 package com.example.zauto.ui.screen.home
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -48,6 +49,7 @@ fun HomeScreen(
             Injection.provideRepository(LocalContext.current)
         )
     ),
+    navigateToDetail: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
     viewModel.uiState.collectAsState(initial = UiState.Loading).value.let { uiState ->
@@ -55,13 +57,15 @@ fun HomeScreen(
             is UiState.Loading -> {
                 viewModel.getAllCars()
             }
+
             is UiState.Success -> {
                 HomeContent(
                     cars = uiState.data,
-                    navigateToDetail = {},
+                    navigateToDetail = navigateToDetail,
                     modifier = modifier
                 )
             }
+
             is UiState.Error -> {}
         }
     }
@@ -70,7 +74,7 @@ fun HomeScreen(
 @Composable
 fun HomeContent(
     cars: List<Car>,
-    navigateToDetail: (Long) -> Unit,
+    navigateToDetail: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -145,7 +149,8 @@ fun HomeContent(
                         horsePower = data.horsePower,
                         year = data.year,
                         price = data.price,
-                        features = data.features
+                        features = data.features,
+                        onClick = { navigateToDetail(data.id) }
                     )
                 }
             }

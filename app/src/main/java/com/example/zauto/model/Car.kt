@@ -16,6 +16,7 @@ data class Car(
     val engineType: String,
     val horsePower: Int,
     val fuelType: String,
+    val specifications: String,
     val features: List<String>,
     val images: List<String>
 )
