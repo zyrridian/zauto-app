@@ -23,7 +23,9 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -89,10 +91,11 @@ fun DetailScreen(
                     data.price,
                     data.features,
                     data.images,
+                    data.isFavorite,
                     onBackClick = navigateBack,
                     onAddToFavorite = {
                         viewModel.addToFavorite(data)
-                        navigateToFavorite()
+//                        navigateToFavorite()
                     }
                 )
             }
@@ -117,12 +120,14 @@ fun DetailContent(
     price: Int,
     features: List<String>,
     images: List<String>,
+    isFavorite: Boolean,
     onBackClick: () -> Unit,
-    onAddToFavorite: () -> Unit,
+    onAddToFavorite: (isFavorite: Boolean) -> Unit,
     modifier: Modifier = Modifier,
 ) {
 
     var selectedImageIndex by remember { mutableStateOf(0) }
+    var favorite by remember { mutableStateOf(isFavorite) }
 
     Column {
         Column(
@@ -138,8 +143,15 @@ fun DetailContent(
                     }
                 },
                 actions = {
-                    IconButton(onClick = {}) {
-                        Icon(Icons.Default.MoreVert, contentDescription = "Back")
+                    IconButton(onClick = {
+                        favorite = !favorite
+                        onAddToFavorite(favorite)
+                    }) {
+                        Icon(
+                            imageVector = if (favorite) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder,
+                            contentDescription = if (favorite) "Remove from favorites" else "Add to favorites",
+                            tint = if (favorite) Color.Red else MaterialTheme.colorScheme.primary, // Icon color matches theme
+                        )
                     }
                 },
             )
@@ -249,7 +261,9 @@ fun DetailContent(
             }
         }
         Button(
-            onClick = { onAddToFavorite() },
+            onClick = {
+//                onAddToFavorite()
+                      },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp)
@@ -303,6 +317,7 @@ fun DetailContentPreview() {
                 "https://hips.hearstapps.com/hmg-prod/images/2026-kia-sportage-pr-114-673f7ae56c057.jpg?crop=0.796xw:0.673xh;0.103xw,0.142xh&resize=2048:*",
                 "https://www.kia.com/content/dam/kwcms/au/en/images/showroom/sportage/features/kia-sportage-features-design-rear.jpg"
             ),
+            isFavorite = true,
             onBackClick = {},
             onAddToFavorite = {}
         )

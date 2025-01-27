@@ -69,9 +69,10 @@ fun ZautoApp(
                 )
             }
             composable(Screen.Favorite.route) {
-                val context = LocalContext.current
                 FavoriteScreen(
-                    onFavoriteButtonClicked = {  }
+                    navigateToDetail = { carId ->
+                        navController.navigate(Screen.Detail.createRoute(carId))
+                    }
                 )
             }
             composable(Screen.Profile.route) {

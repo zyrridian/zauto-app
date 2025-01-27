@@ -64,9 +64,14 @@ fun CarListScreen(
             }
 
             is UiState.Success -> {
+                val data = uiState.data
                 CarListContent(
-                    cars = uiState.data,
+                    cars = data,
                     onBackClick = {},
+                    onFavoriteClick = { car ->
+                        viewModel.addToFavorite(car)
+                    },
+                    navigateToDetail = navigateToDetail ,
                     modifier = modifier
                 )
             }
@@ -81,6 +86,8 @@ fun CarListScreen(
 fun CarListContent(
     cars: List<Car>,
     onBackClick: () -> Unit,
+    navigateToDetail: (carId: Int) -> Unit,
+    onFavoriteClick: (car: Car) -> Unit,
     modifier: Modifier = Modifier
 ) {
     var searchQuery by remember { mutableStateOf("") } // State for search input
@@ -128,7 +135,9 @@ fun CarListContent(
                     year = data.year,
                     price = data.price,
                     features = data.features,
-                    onClick = { } //navigateToDetail(data.id)
+                    isFavorite = data.isFavorite,
+                    onClick = { navigateToDetail(data.id) }, //navigateToDetail(data.id)
+                    onFavoriteClick = { onFavoriteClick(data) }
                 )
             }
 
@@ -367,6 +376,8 @@ fun CarListContentPreview() {
                 )
             ),
             onBackClick = {},
+            navigateToDetail = {},
+            onFavoriteClick = {}
         )
     }
 }

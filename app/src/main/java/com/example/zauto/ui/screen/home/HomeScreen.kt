@@ -60,10 +60,14 @@ fun HomeScreen(
             }
 
             is UiState.Success -> {
+                val data = uiState.data
                 HomeContent(
-                    cars = uiState.data,
+                    cars = data,
                     navigateToCarList = navigateToCarList,
                     navigateToDetail = navigateToDetail,
+                    onFavoriteClick = { car ->
+                        viewModel.addToFavorite(car)
+                    },
                     modifier = modifier
                 )
             }
@@ -78,6 +82,7 @@ fun HomeContent(
     cars: List<Car>,
     navigateToCarList: () -> Unit,
     navigateToDetail: (Int) -> Unit,
+    onFavoriteClick: (car: Car) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -153,7 +158,9 @@ fun HomeContent(
                         year = data.year,
                         price = data.price,
                         features = data.features,
-                        onClick = { navigateToDetail(data.id) }
+                        isFavorite = data.isFavorite,
+                        onClick = { navigateToDetail(data.id) },
+                        onFavoriteClick = { onFavoriteClick(data) }
                     )
                 }
             }

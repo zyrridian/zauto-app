@@ -27,7 +27,7 @@ class DetailViewModel(
         viewModelScope.launch {
             repository.updateFavoriteCar(
                 carId = car.id,
-                isFavorite = true
+                isFavorite = car.isFavorite
             )
         }
     }

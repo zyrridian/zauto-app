@@ -50,7 +50,7 @@ class CarRepository(context: Context) {
         val result = if (index >= 0) {
             val car = cars[index]
             cars[index] =
-                car.copy(id = car.id, isFavorite = isFavorite)
+                car.copy(id = car.id, isFavorite = !isFavorite)
             true
         } else {
             false

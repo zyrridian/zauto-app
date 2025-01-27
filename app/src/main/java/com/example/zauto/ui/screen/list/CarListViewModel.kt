@@ -62,4 +62,14 @@ class CarListViewModel(
 //            .groupBy { it.name[0] }
 //    }
 
+
+    fun addToFavorite(car: Car) {
+        viewModelScope.launch {
+            repository.updateFavoriteCar(
+                carId = car.id,
+                isFavorite = car.isFavorite
+            )
+        }
+    }
+
 }

@@ -38,4 +38,17 @@ class FavoriteViewModel(
                 }
         }
     }
+
+    fun addToFavorite(car: Car) {
+        viewModelScope.launch {
+            repository.updateFavoriteCar(
+                carId = car.id,
+                isFavorite = car.isFavorite
+            ).collect { isUpdated ->
+                if (isUpdated) {
+                    getAddedFavorite()
+                }
+            }
+        }
+    }
 }

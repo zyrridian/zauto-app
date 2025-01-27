@@ -1,28 +1,38 @@
 package com.example.zauto.ui.components
 
 import android.content.res.Configuration
-import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material3.Card
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -31,8 +41,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.example.zauto.R
-import com.example.zauto.ui.screen.detail.DetailContent
 import com.example.zauto.ui.theme.ZautoTheme
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -47,21 +55,44 @@ fun CarCard(
     year: Int,
     price: Int,
     features: List<String>,
+    isFavorite: Boolean,
     onClick: () -> Unit,
+    onFavoriteClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    var favorite by remember { mutableStateOf(isFavorite) }
     Card(
         modifier = modifier.clickable { onClick() }
     ) {
         Column {
-            AsyncImage(
-                model = image,
-                contentDescription = null,
-                contentScale = ContentScale.Fit,
-                modifier = modifier
-                    .padding(8.dp)
-                    .size(width = 240.dp, height = 140.dp)
-            )
+            Box {
+                AsyncImage(
+                    model = image,
+                    contentDescription = null,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .padding(8.dp)
+                        .size(width = 240.dp, height = 140.dp)
+                )
+                IconButton(
+                    onClick = {
+                        favorite = !favorite
+                        onFavoriteClick()
+                        // some onClick from outside
+                    },
+                    modifier = Modifier
+                        .align(Alignment.TopEnd)
+                        .padding(8.dp)
+                        .clip(CircleShape) // Makes the button circular
+//                        .background(Color.White) // Adds a white background
+                ) {
+                    Icon(
+                        imageVector = if (favorite) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder,
+                        contentDescription = if (favorite) "Remove from favorites" else "Add to favorites",
+                        tint = if (favorite) Color.Red else MaterialTheme.colorScheme.primary, // Icon color matches theme
+                    )
+                }
+            }
             Column(
                 modifier = Modifier.padding(
                     top = 8.dp,
@@ -88,13 +119,6 @@ fun CarCard(
                     )
                 )
                 Spacer(modifier = Modifier.height(8.dp))
-//                LazyRow(
-//                    horizontalArrangement = Arrangement.spacedBy(4.dp)
-//                ) {
-//                    item { Chip(type) }
-//                    item { Chip(fuelType) }
-//                    item { Chip("$horsePower HP") }
-//                }
                 FlowRow(
                     horizontalArrangement = Arrangement.spacedBy(4.dp),
                     verticalArrangement = Arrangement.spacedBy(4.dp),
@@ -134,6 +158,8 @@ fun DetailContentPreview() {
             horsePower = 203,
             price = 24000,
             onClick = { },
+            isFavorite = true,
+            onFavoriteClick = { }
         )
     }
 }

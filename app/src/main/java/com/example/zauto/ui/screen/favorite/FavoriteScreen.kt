@@ -2,35 +2,29 @@ package com.example.zauto.ui.screen.favorite
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.zauto.R
 import com.example.zauto.di.Injection
+import com.example.zauto.model.Car
 import com.example.zauto.ui.ViewModelFactory
 import com.example.zauto.ui.common.UiState
 import com.example.zauto.ui.components.CarCard
-
 
 @Composable
 fun FavoriteScreen(
@@ -39,24 +33,24 @@ fun FavoriteScreen(
             Injection.provideRepository(LocalContext.current)
         )
     ),
-    onFavoriteButtonClicked: () -> Unit
+    navigateToDetail: (Int) -> Unit,
 ) {
     viewModel.uiState.collectAsState(initial = UiState.Loading).value.let { uiState ->
-        when(uiState) {
+        when (uiState) {
             is UiState.Loading -> {
                 viewModel.getAddedFavorite()
             }
+
             is UiState.Success -> {
                 FavoriteContent(
                     state = uiState.data,
-                    onProductCountChanged = { carId, isFavorite ->
-                        viewModel.updateOrderReward(carId, isFavorite)
+                    navigateToDetail = navigateToDetail,
+                    onFavoriteClick = { car ->
+                        viewModel.addToFavorite(car)
                     },
-                    onFavoriteButtonClicked = {
-                        onFavoriteButtonClicked()
-                    }
                 )
             }
+
             is UiState.Error -> {}
         }
     }
@@ -66,15 +60,10 @@ fun FavoriteScreen(
 @Composable
 fun FavoriteContent(
     state: FavoriteState,
-    onProductCountChanged: (id: Int, isFavorite: Boolean) -> Unit,
-    onFavoriteButtonClicked: () -> Unit,
+    onFavoriteClick: (car: Car) -> Unit,
+    navigateToDetail: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
-//    val shareMessage = stringResource(
-//        R.string.share_message,
-//        state.orderReward.count(),
-//        state.totalRequiredPoint
-//    )
     Column(
         modifier = modifier.fillMaxSize()
     ) {
@@ -99,26 +88,22 @@ fun FavoriteContent(
                 .fillMaxWidth()
                 .padding(vertical = 16.dp, horizontal = 16.dp)
         ) {
-            items(state.cars, key = { it.id }) { item ->
+            items(state.cars, key = { it.id }) { data ->
                 CarCard(
-                    brand = item.brand,
-                    model = item.model,
-                    year = item.year,
-                    type = item.type,
-                    fuelType = item.fuelType,
-                    image = item.images[0],
-                    features = item.features,
-                    horsePower = item.horsePower,
-                    price = item.price,
-                    onClick = { onFavoriteButtonClicked() },
+                    brand = data.brand,
+                    model = data.model,
+                    year = data.year,
+                    type = data.type,
+                    fuelType = data.fuelType,
+                    image = data.images[0],
+                    features = data.features,
+                    horsePower = data.horsePower,
+                    price = data.price,
+                    isFavorite = data.isFavorite,
+                    onClick = { navigateToDetail(data.id) },//onFavoriteButtonClicked(item.id, false) },
+                    onFavoriteClick = { onFavoriteClick(data) },
                 )
             }
         }
-//        OrderButton(
-//            text = stringResource(R.string.total_order, state.totalRequiredPoint),
-//            enabled = state.orderReward.isNotEmpty(),
-//            onClick = { onOrderButtonClicked(shareMessage) },
-//            modifier = Modifier.padding(16.dp)
-//        )
     }
 }
