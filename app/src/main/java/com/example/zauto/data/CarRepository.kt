@@ -24,6 +24,10 @@ class CarRepository(context: Context) {
         return flowOf(cars)
     }
 
+    fun getLimitedCars(limit: Int = 5): Flow<List<Car>> {
+        return flowOf(cars.take(limit))
+    }
+
     fun getCarById(carId: Int): Car {
         return cars.first {
             it.id == carId

@@ -57,6 +57,7 @@ import com.example.zauto.di.Injection
 import com.example.zauto.ui.ViewModelFactory
 import com.example.zauto.ui.common.UiState
 import com.example.zauto.ui.screen.detail.components.SpecItem
+import com.example.zauto.ui.screen.profile.openExternalLink
 import com.example.zauto.ui.theme.ZautoTheme
 
 @Composable
@@ -126,6 +127,7 @@ fun DetailContent(
     modifier: Modifier = Modifier,
 ) {
 
+    val context = LocalContext.current
     var selectedImageIndex by remember { mutableStateOf(0) }
     var favorite by remember { mutableStateOf(isFavorite) }
 
@@ -262,14 +264,16 @@ fun DetailContent(
         }
         Button(
             onClick = {
-//                onAddToFavorite()
-                      },
+                val searchQuery = "$brand $model $year buy"
+                val searchUrl = "https://www.google.com/search?q=$searchQuery"
+                openExternalLink(context, searchUrl)
+            },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
             Text(
-                text = "Buy Now for \$$price"
+                text = "Buy this car NOW!"
             )
         }
     }

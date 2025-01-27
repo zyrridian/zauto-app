@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.sp
 fun SectionHeader(
     title: String,
     onClick: () -> Unit,
+    displayShowAll: Boolean = true,
     modifier: Modifier = Modifier
 ) {
     Row(
@@ -34,16 +35,18 @@ fun SectionHeader(
                 fontWeight = FontWeight.Medium
             )
         )
-        TextButton(
-            onClick = onClick,
-        ) {
-            Text(
-                text = "show all",
-                style = TextStyle(
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.Normal
+        if (displayShowAll) {
+            TextButton(
+                onClick = onClick,
+            ) {
+                Text(
+                    text = "show all",
+                    style = TextStyle(
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.Normal
+                    )
                 )
-            )
+            }
         }
     }
 }

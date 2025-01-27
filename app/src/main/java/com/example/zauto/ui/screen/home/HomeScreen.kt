@@ -13,15 +13,18 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
@@ -32,6 +35,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.zauto.R
 import com.example.zauto.di.Injection
 import com.example.zauto.model.Car
+import com.example.zauto.model.brands
 import com.example.zauto.ui.ViewModelFactory
 import com.example.zauto.ui.common.UiState
 import com.example.zauto.ui.components.Banner
@@ -41,6 +45,7 @@ import com.example.zauto.ui.components.CustomIconButton
 import com.example.zauto.ui.components.HomeSearchBar
 import com.example.zauto.ui.components.LocationButton
 import com.example.zauto.ui.components.SectionHeader
+import com.example.zauto.ui.screen.profile.openExternalLink
 
 @Composable
 fun HomeScreen(
@@ -56,7 +61,7 @@ fun HomeScreen(
     viewModel.uiState.collectAsState(initial = UiState.Loading).value.let { uiState ->
         when (uiState) {
             is UiState.Loading -> {
-                viewModel.getAllCars()
+                viewModel.getLimitedCars()
             }
 
             is UiState.Success -> {
@@ -85,6 +90,7 @@ fun HomeContent(
     onFavoriteClick: (car: Car) -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val context = LocalContext.current
     Column(
         modifier = Modifier.verticalScroll(rememberScrollState())
     ) {
@@ -111,7 +117,14 @@ fun HomeContent(
                     Spacer(modifier = Modifier.height(4.dp))
                     LocationButton()
                 }
-                CustomIconButton(icon = Icons.Default.Info, onClick = {})
+                CustomIconButton(
+                    icon = Icons.Default.Info,
+                    onClick = {
+                        openExternalLink(
+                            context,
+                            "https://github.com/zyrridian/zauto-app"
+                        )
+                    })
             }
             Spacer(modifier = Modifier.height(16.dp))
             HomeSearchBar(modifier = Modifier.clickable { navigateToCarList() })
@@ -123,24 +136,29 @@ fun HomeContent(
         ) {
             // Brands
             Spacer(modifier = Modifier.height(16.dp))
-            SectionHeader(title = "Brands", onClick = {})
-            Spacer(modifier = Modifier.height(4.dp))
+            SectionHeader(title = "Brands", onClick = {}, displayShowAll = false)
+            Spacer(modifier = Modifier.height(16.dp))
             Row(
                 horizontalArrangement = Arrangement.SpaceAround,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 24.dp)
             ) {
-                Brand(text = "Audi", image = R.drawable.audi)
-                Brand(text = "Mercedes", image = R.drawable.mercedes)
-                Brand(text = "Honda", image = R.drawable.honda)
-                Brand(text = "Nissan", image = R.drawable.nissan)
-                Brand(text = "Toyota", image = R.drawable.toyota)
+                brands.forEach { brand ->
+                    Brand(
+                        text = brand.text,
+                        image = brand.image,
+                        modifier = Modifier
+                            .clickable {
+                                openExternalLink(context, brand.url)
+                            }
+                    )
+                }
             }
 
             // Cars
             Spacer(modifier = Modifier.height(16.dp))
-            SectionHeader(title = "New Arrival", onClick = {})
+            SectionHeader(title = "New Arrival", onClick = { navigateToCarList() })
             Spacer(modifier = Modifier.height(4.dp))
             LazyRow(
                 horizontalArrangement = Arrangement.spacedBy(16.dp),

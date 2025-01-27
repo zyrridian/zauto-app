@@ -2,6 +2,7 @@ package com.example.zauto.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -22,15 +23,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.zauto.R
+import com.example.zauto.ui.screen.profile.openExternalLink
 
 @Composable
-fun Banner(modifier: Modifier = Modifier) {
+fun Banner(
+    modifier: Modifier = Modifier
+) {
+    val context = LocalContext.current
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -41,6 +47,7 @@ fun Banner(modifier: Modifier = Modifier) {
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(12.dp))
                 .background(Color(0xFFE2F3F4))
+                .clickable { openExternalLink(context, "https://wuling.id/id/air-ev") }
                 .padding(16.dp)
         ) {
             Text(

@@ -27,7 +27,10 @@ fun Brand(
     image: Int,
     modifier: Modifier = Modifier
 ) {
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier
+    ) {
         Box(
             modifier = Modifier
                 .clip(RoundedCornerShape(100.dp))

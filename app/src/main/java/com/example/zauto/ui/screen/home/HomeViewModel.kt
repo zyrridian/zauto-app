@@ -29,6 +29,18 @@ class HomeViewModel(
         }
     }
 
+    fun getLimitedCars(limit: Int = 5) {
+        viewModelScope.launch {
+            repository.getLimitedCars()
+                .catch {
+                    _uiState.value = UiState.Error(it.message.toString())
+                }
+                .collect { cars ->
+                    _uiState.value = UiState.Success(cars)
+                }
+        }
+    }
+
     fun addToFavorite(car: Car) {
         viewModelScope.launch {
             repository.updateFavoriteCar(
