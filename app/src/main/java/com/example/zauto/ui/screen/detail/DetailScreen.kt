@@ -69,7 +69,6 @@ fun DetailScreen(
         )
     ),
     navigateBack: () -> Unit,
-    navigateToFavorite: () -> Unit
 ) {
     viewModel.uiState.collectAsState(initial = UiState.Loading).value.let { uiState ->
         when (uiState) {
@@ -94,10 +93,7 @@ fun DetailScreen(
                     data.images,
                     data.isFavorite,
                     onBackClick = navigateBack,
-                    onAddToFavorite = {
-                        viewModel.addToFavorite(data)
-//                        navigateToFavorite()
-                    }
+                    onAddToFavorite = { viewModel.addToFavorite(data) }
                 )
             }
 
@@ -179,7 +175,7 @@ fun DetailContent(
                         modifier = Modifier
                             .size(80.dp)
                             .clip(RoundedCornerShape(12.dp))
-                            .border(1.dp, Color.LightGray, RoundedCornerShape(12.dp))
+                            .border(0.5.dp, Color.LightGray, RoundedCornerShape(12.dp))
                             .clickable {
                                 selectedImageIndex = index
                             }
@@ -250,7 +246,7 @@ fun DetailContent(
                         Box(
                             modifier = Modifier
                                 .border(
-                                    width = 1.dp,
+                                    width = 0.5.dp,
                                     color = Color.LightGray,
                                     shape = RoundedCornerShape(16.dp)
                                 )
@@ -273,7 +269,7 @@ fun DetailContent(
                 .padding(16.dp)
         ) {
             Text(
-                text = "Buy this car NOW!"
+                text = "Buy this car NOW! (\$$price)"
             )
         }
     }

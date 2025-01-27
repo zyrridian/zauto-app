@@ -8,7 +8,13 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.outlined.Favorite
+import androidx.compose.material.icons.outlined.FavoriteBorder
+import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.Person
+import androidx.compose.material.icons.twotone.Favorite
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
@@ -80,6 +86,7 @@ fun ZautoApp(
             }
             composable(Screen.CarList.route) {
                 CarListScreen(
+                    navigateBack = { navController.navigateUp() },
                     navigateToDetail = { carId ->
                         navController.navigate(Screen.Detail.createRoute(carId))
                     }
@@ -92,17 +99,7 @@ fun ZautoApp(
                 val id = it.arguments?.getInt("carId") ?: -1
                 DetailScreen(
                     carId = id,
-                    navigateBack = { navController.navigateUp() },
-                    navigateToFavorite = {
-                        navController.popBackStack()
-                        navController.navigate(Screen.Favorite.route) {
-                            popUpTo(navController.graph.findStartDestination().id) {
-                                saveState = true
-                            }
-                            launchSingleTop = true
-                            restoreState = true
-                        }
-                    }
+                    navigateBack = { navController.navigateUp() }
                 )
             }
         }
@@ -122,24 +119,34 @@ fun BottomBar(
         val navigationItems = listOf(
             NavigationItem(
                 title = "Home",
-                icon = Icons.Default.Home,
+                icon = Icons.Outlined.Home,
+                selectedIcon = Icons.Default.Home,
                 screen = Screen.Home
             ),
             NavigationItem(
                 title = "Favorite",
-                icon = Icons.Default.Favorite,
+                icon = Icons.Outlined.FavoriteBorder,
+                selectedIcon = Icons.Default.Favorite,
                 screen = Screen.Favorite
             ),
             NavigationItem(
                 title = "Profile",
-                icon = Icons.Default.Person,
+                icon = Icons.Outlined.Person,
+                selectedIcon = Icons.Default.Person,
                 screen = Screen.Profile
             )
         )
         navigationItems.map { item ->
             NavigationBarItem(
                 icon = {
-                    Icon(imageVector = item.icon, contentDescription = item.title)
+                    Icon(
+                        imageVector = if (currentRoute == item.screen.route) {
+                            item.selectedIcon ?: item.icon
+                        } else {
+                            item.icon
+                        },
+                        contentDescription = item.title
+                    )
                 },
                 label = { Text(item.title) },
                 selected = currentRoute == item.screen.route,

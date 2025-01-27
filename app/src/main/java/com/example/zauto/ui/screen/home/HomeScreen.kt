@@ -1,5 +1,6 @@
 package com.example.zauto.ui.screen.home
 
+import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -29,12 +30,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Devices
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.zauto.R
+import com.example.zauto.ZautoApp
 import com.example.zauto.di.Injection
 import com.example.zauto.model.Car
+import com.example.zauto.model.DummyDataSource.loadDummyCars
 import com.example.zauto.model.brands
 import com.example.zauto.ui.ViewModelFactory
 import com.example.zauto.ui.common.UiState
@@ -46,6 +51,7 @@ import com.example.zauto.ui.components.HomeSearchBar
 import com.example.zauto.ui.components.LocationButton
 import com.example.zauto.ui.components.SectionHeader
 import com.example.zauto.ui.screen.profile.openExternalLink
+import com.example.zauto.ui.theme.ZautoTheme
 
 @Composable
 fun HomeScreen(
@@ -142,7 +148,7 @@ fun HomeContent(
                 horizontalArrangement = Arrangement.SpaceAround,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 24.dp)
+                    .padding(horizontal = 16.dp)
             ) {
                 brands.forEach { brand ->
                     Brand(
@@ -188,5 +194,19 @@ fun HomeContent(
             Banner()
             Spacer(modifier = Modifier.height(20.dp))
         }
+    }
+}
+
+@Preview(showBackground = true, device = Devices.PIXEL_4)
+@Preview(showBackground = true, device = Devices.PIXEL_4, uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+fun Preview() {
+    ZautoTheme {
+        HomeContent(
+            cars = loadDummyCars(LocalContext.current),
+            navigateToCarList = {},
+            navigateToDetail = {},
+            onFavoriteClick = {},
+        )
     }
 }

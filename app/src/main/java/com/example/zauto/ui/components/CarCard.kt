@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.outlined.FavoriteBorder
@@ -33,6 +34,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -41,6 +43,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.example.zauto.R
 import com.example.zauto.ui.theme.ZautoTheme
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -70,21 +73,22 @@ fun CarCard(
                     model = image,
                     contentDescription = null,
                     contentScale = ContentScale.Crop,
+                    placeholder = painterResource(R.drawable.img_placeholder),
+                    error = painterResource(R.drawable.img_error),
                     modifier = Modifier
                         .padding(8.dp)
+                        .clip(RoundedCornerShape(12.dp))
                         .size(width = 240.dp, height = 140.dp)
                 )
                 IconButton(
                     onClick = {
                         favorite = !favorite
                         onFavoriteClick()
-                        // some onClick from outside
                     },
                     modifier = Modifier
                         .align(Alignment.TopEnd)
                         .padding(8.dp)
-                        .clip(CircleShape) // Makes the button circular
-//                        .background(Color.White) // Adds a white background
+                        .clip(CircleShape)
                 ) {
                     Icon(
                         imageVector = if (favorite) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder,

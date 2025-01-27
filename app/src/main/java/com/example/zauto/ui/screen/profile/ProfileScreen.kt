@@ -49,7 +49,7 @@ fun ProfileScreen(modifier: Modifier = Modifier) {
             modifier = Modifier
                 .size(100.dp)
                 .clip(RoundedCornerShape(100.dp))
-                .border(width = 1.dp, color = Color.LightGray, shape = RoundedCornerShape(100.dp))
+                .border(width = 0.5.dp, color = Color.LightGray, shape = RoundedCornerShape(100.dp))
         )
         Spacer(Modifier.height(16.dp))
         Text(
