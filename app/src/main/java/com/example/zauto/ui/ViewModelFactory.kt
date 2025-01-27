@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.zauto.data.CarRepository
 import com.example.zauto.ui.screen.detail.DetailViewModel
 import com.example.zauto.ui.screen.home.HomeViewModel
+import com.example.zauto.ui.screen.list.CarListViewModel
 
 class ViewModelFactory(private val repository: CarRepository) :
     ViewModelProvider.NewInstanceFactory() {
@@ -15,6 +16,8 @@ class ViewModelFactory(private val repository: CarRepository) :
             return HomeViewModel(repository) as T
         } else if (modelClass.isAssignableFrom(DetailViewModel::class.java)) {
             return DetailViewModel(repository) as T
+        } else if (modelClass.isAssignableFrom(CarListViewModel::class.java)) {
+            return CarListViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }

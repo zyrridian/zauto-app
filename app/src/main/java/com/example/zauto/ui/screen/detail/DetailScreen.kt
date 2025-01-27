@@ -1,7 +1,6 @@
 package com.example.zauto.ui.screen.detail
 
 import android.content.res.Configuration
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -11,17 +10,13 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -58,6 +53,7 @@ import com.example.zauto.R
 import com.example.zauto.di.Injection
 import com.example.zauto.ui.ViewModelFactory
 import com.example.zauto.ui.common.UiState
+import com.example.zauto.ui.screen.detail.components.SpecItem
 import com.example.zauto.ui.theme.ZautoTheme
 
 @Composable
@@ -120,34 +116,36 @@ fun DetailContent(
     modifier: Modifier = Modifier,
 ) {
 
-    var selectedImageIndex by remember { mutableStateOf(0)}
+    var selectedImageIndex by remember { mutableStateOf(0) }
 
     Column(
         modifier = Modifier.verticalScroll(rememberScrollState())
     ) {
         TopAppBar(
-            title = {},
-            navigationIcon = {
-                IconButton(onClick = onBackClick) {
-                    Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
-                }
-            },
-            actions = {
-                IconButton(onClick = {}) {
-                    Icon(Icons.Default.MoreVert, contentDescription = "Back")
-                }
-            },
+                title = {},
+        navigationIcon = {
+            IconButton(onClick = onBackClick) {
+                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+            }
+        },
+        actions = {
+            IconButton(onClick = {}) {
+                Icon(Icons.Default.MoreVert, contentDescription = "Back")
+            }
+        },
         )
+
         AsyncImage(
             model = images[selectedImageIndex],
             contentDescription = "Car Image",
             contentScale = ContentScale.Crop,
-            placeholder = painterResource(id = R.drawable.img_placeholder),
-            error = painterResource(id = R.drawable.img_error),
+            placeholder = painterResource(R.drawable.img_placeholder),
+            error = painterResource(R.drawable.img_error),
             modifier = Modifier
                 .fillMaxWidth()
                 .height(260.dp)
         )
+
         LazyRow(
             modifier = Modifier.fillMaxWidth(),
             contentPadding = PaddingValues(8.dp),
@@ -181,6 +179,7 @@ fun DetailContent(
                 }
             }
         }
+
         Column(
             modifier = Modifier.padding(16.dp)
         ) {
@@ -195,38 +194,10 @@ fun DetailContent(
                 verticalArrangement = Arrangement.spacedBy(8.dp),
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Row {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_outline_car_24),
-                        contentDescription = null
-                    )
-                    Spacer(Modifier.width(4.dp))
-                    Text(text = type, fontSize = 16.sp)
-                }
-                Row {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_outline_fuel_24),
-                        contentDescription = null
-                    )
-                    Spacer(Modifier.width(4.dp))
-                    Text(text = fuelType, fontSize = 16.sp)
-                }
-                Row {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_outline_seat_24),
-                        contentDescription = null
-                    )
-                    Spacer(Modifier.width(4.dp))
-                    Text(text = "$seat Seats", fontSize = 16.sp)
-                }
-                Row {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_outline_transmission_24),
-                        contentDescription = null
-                    )
-                    Spacer(Modifier.width(4.dp))
-                    Text(text = transmission, fontSize = 16.sp)
-                }
+                SpecItem(title = type, icon = R.drawable.ic_outline_car_24)
+                SpecItem(title = fuelType, icon = R.drawable.ic_outline_fuel_24)
+                SpecItem(title = "$seat Seats", icon = R.drawable.ic_outline_seat_24)
+                SpecItem(title = transmission, icon = R.drawable.ic_outline_transmission_24)
             }
             Spacer(Modifier.height(16.dp))
             Text(

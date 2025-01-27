@@ -31,6 +31,7 @@ import com.example.zauto.ui.navigation.Screen
 import com.example.zauto.ui.screen.detail.DetailScreen
 import com.example.zauto.ui.screen.favorite.FavoriteScreen
 import com.example.zauto.ui.screen.home.HomeScreen
+import com.example.zauto.ui.screen.list.CarListScreen
 import com.example.zauto.ui.screen.profile.ProfileScreen
 import com.example.zauto.ui.theme.ZautoTheme
 
@@ -40,10 +41,10 @@ fun ZautoApp(
     modifier: Modifier = Modifier
 ) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
-val currentRoute =navBackStackEntry?.destination?.route
+    val currentRoute = navBackStackEntry?.destination?.route
     Scaffold(
         bottomBar = {
-            if (currentRoute != Screen.Detail.route) {
+            if (currentRoute != Screen.Detail.route && currentRoute != Screen.CarList.route) {
                 BottomBar(navController)
             }
         },
@@ -58,6 +59,9 @@ val currentRoute =navBackStackEntry?.destination?.route
         ) {
             composable(Screen.Home.route) {
                 HomeScreen(
+                    navigateToCarList = {
+                        navController.navigate(Screen.CarList.route)
+                    },
                     navigateToDetail = { carId ->
                         navController.navigate(Screen.Detail.createRoute(carId))
                     }
@@ -68,6 +72,13 @@ val currentRoute =navBackStackEntry?.destination?.route
             }
             composable(Screen.Profile.route) {
                 ProfileScreen()
+            }
+            composable(Screen.CarList.route) {
+                CarListScreen(
+                    navigateToDetail = { carId ->
+                        navController.navigate(Screen.Detail.createRoute(carId))
+                    }
+                )
             }
             composable(
                 route = Screen.Detail.route,

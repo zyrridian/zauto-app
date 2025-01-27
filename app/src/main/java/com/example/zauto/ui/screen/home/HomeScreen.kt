@@ -49,6 +49,7 @@ fun HomeScreen(
             Injection.provideRepository(LocalContext.current)
         )
     ),
+    navigateToCarList: () -> Unit,
     navigateToDetail: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -61,6 +62,7 @@ fun HomeScreen(
             is UiState.Success -> {
                 HomeContent(
                     cars = uiState.data,
+                    navigateToCarList = navigateToCarList,
                     navigateToDetail = navigateToDetail,
                     modifier = modifier
                 )
@@ -74,6 +76,7 @@ fun HomeScreen(
 @Composable
 fun HomeContent(
     cars: List<Car>,
+    navigateToCarList: () -> Unit,
     navigateToDetail: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -106,7 +109,7 @@ fun HomeContent(
                 CustomIconButton(icon = Icons.Default.Info, onClick = {})
             }
             Spacer(modifier = Modifier.height(16.dp))
-            HomeSearchBar()
+            HomeSearchBar(modifier = Modifier.clickable { navigateToCarList() })
         }
 
         // Body

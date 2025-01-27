@@ -61,5 +61,6 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.gson)
     implementation(libs.coil.compose)
+    implementation(libs.androidx.browser)
 
 }

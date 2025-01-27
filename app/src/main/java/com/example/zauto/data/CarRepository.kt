@@ -29,6 +29,12 @@ class CarRepository(context: Context) {
             it.id == carId
         }
     }
+
+    fun searchCar(query: String): List<Car> {
+        return cars.filter {
+            it.brand.contains(query, ignoreCase = true)
+        }
+    }
 //
 //    fun updateOrderReward(rewardId: Long, newCountValue: Int): Flow<Boolean> {
 //        val index = orderRewards.indexOfFirst { it.reward.id == rewardId }
