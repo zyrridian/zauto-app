@@ -23,9 +23,12 @@ class DetailViewModel(
         }
     }
 
-//    fun addToCart(car: Car, count: Int) {
-//        viewModelScope.launch {
-//            repository.updateOrderReward(reward.id, count)
-//        }
-//    }
+    fun addToFavorite(car: Car) {
+        viewModelScope.launch {
+            repository.updateFavoriteCar(
+                carId = car.id,
+                isFavorite = true
+            )
+        }
+    }
 }

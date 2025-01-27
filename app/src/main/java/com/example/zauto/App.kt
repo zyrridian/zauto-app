@@ -16,6 +16,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -68,7 +69,10 @@ fun ZautoApp(
                 )
             }
             composable(Screen.Favorite.route) {
-                FavoriteScreen()
+                val context = LocalContext.current
+                FavoriteScreen(
+                    onFavoriteButtonClicked = {  }
+                )
             }
             composable(Screen.Profile.route) {
                 ProfileScreen()
@@ -87,12 +91,10 @@ fun ZautoApp(
                 val id = it.arguments?.getInt("carId") ?: -1
                 DetailScreen(
                     carId = id,
-                    navigateBack = {
-                        navController.navigateUp()
-                    },
-                    navigateToCart = {
+                    navigateBack = { navController.navigateUp() },
+                    navigateToFavorite = {
                         navController.popBackStack()
-                        navController.navigate(Screen.Detail.route) {
+                        navController.navigate(Screen.Favorite.route) {
                             popUpTo(navController.graph.findStartDestination().id) {
                                 saveState = true
                             }
@@ -113,7 +115,9 @@ fun BottomBar(
 ) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
-    NavigationBar {
+    NavigationBar(
+        modifier = modifier
+    ) {
         val navigationItems = listOf(
             NavigationItem(
                 title = "Home",

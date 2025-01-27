@@ -35,28 +35,28 @@ class CarRepository(context: Context) {
             it.brand.contains(query, ignoreCase = true)
         }
     }
-//
-//    fun updateOrderReward(rewardId: Long, newCountValue: Int): Flow<Boolean> {
-//        val index = orderRewards.indexOfFirst { it.reward.id == rewardId }
-//        val result = if (index >= 0) {
-//            val orderReward = orderRewards[index]
-//            orderRewards[index] =
-//                orderReward.copy(reward = orderReward.reward, count = newCountValue)
-//            true
-//        } else {
-//            false
-//        }
-//        return flowOf(result)
-//    }
-//
-//    fun getAddedOrderRewards(): Flow<List<OrderReward>> {
-//        return getAllRewards()
-//            .map { orderRewards ->
-//                orderRewards.filter { orderReward ->
-//                    orderReward.count != 0
-//                }
-//            }
-//    }
+
+    fun getAddedFavorite(): Flow<List<Car>> {
+        return getAllCars()
+            .map { cars ->
+                cars.filter { car ->
+                    car.isFavorite
+                }
+            }
+    }
+
+    fun updateFavoriteCar(carId: Int, isFavorite: Boolean): Flow<Boolean> {
+        val index = cars.indexOfFirst { it.id == carId }
+        val result = if (index >= 0) {
+            val car = cars[index]
+            cars[index] =
+                car.copy(id = car.id, isFavorite = isFavorite)
+            true
+        } else {
+            false
+        }
+        return flowOf(result)
+    }
 
     companion object {
         @Volatile

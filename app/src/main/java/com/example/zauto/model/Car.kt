@@ -18,5 +18,6 @@ data class Car(
     val fuelType: String,
     val specifications: String,
     val features: List<String>,
-    val images: List<String>
+    val images: List<String>,
+    val isFavorite: Boolean = false
 )
